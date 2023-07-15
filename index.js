@@ -19,7 +19,7 @@ function infoMerc() {
     return console.log(mesa,silla,tv)
 }
 
-console.log("Escriba comprar()  para iniciar su pedido o infoMerc() para la información de la mercaderia.")
+console.log("Escriba comprar()  para iniciar su pedido o infoMerc() para la información de la mercaderia. Prueba con repetirComprar() para realizar la actividad de comprar() 5 veces.")
 
 class Producto {
     constructor(nombre, precio, impuestos, mesa, silla, tv) {
@@ -93,4 +93,10 @@ function comprar() {
 
     let importeFinalConDescuento = nuevoProducto.importeFinal - descuento;
     console.log("Importe final: $" + importeFinalConDescuento);
+}
+
+function repetirComprar() {
+    for (let i = 0; i < 5; i++) {
+    comprar();
+    }
 }
