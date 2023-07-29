@@ -35,8 +35,8 @@ mercaderia.push(armario);
 console.log(mercaderia);
 
 function filtrarPorPrecio() {
-    const minPrecio = parseFloat(prompt("Ingrese precio mínimo:"));
-    const maxPrecio = parseFloat(prompt("Ingrese precio máximo:"));
+    const minPrecio = parseFloat(prompt("Ingrese precio mínimo (Entre 0 - 100)(Ej: 10):"));
+    const maxPrecio = parseFloat(prompt("Ingrese precio máximo (Entre 0 - 100)(Ej: 40):"));
 
     const mercaderiasFiltradas = mercaderia.filter((producto) => {
         return producto.precioEnDolar >= minPrecio && producto.precioEnDolar <= maxPrecio;
@@ -55,6 +55,8 @@ console.log("infoMerc() para la información de la mercadería.")
 console.log("repetirComprar() para realizar la actividad de comprar() 5 veces.")
 console.log("filtrarPorPrecio() para filtrar la mercadería por su precio deseado.") // Aquí agregue lo de arrays para la segunda pre entrega.
 console.log("Este ejemplo solo contempla mercadería de entre 10 y 90 USD rangos más grandes o chicos son irrelevantes.")
+
+filtrarPorPrecio()
 
 class Producto {
     constructor(nombre, precio, impuestos, mesa, silla, tv, lampara, escritorio, librero, sofa, cama, mesaDeNoche, armario) {
@@ -114,8 +116,8 @@ class Producto {
 function comprar() {
     // Solicitar al usuario los datos del producto
     let nombre = prompt("Ingrese su nombre:");
-    let precio = parseFloat(prompt("Ingrese el precio de un producto:"));
-    let impuestos = parseFloat(prompt("Ingrese el valor de los impuestos del producto:"));
+    let precio = parseFloat(prompt("Ingrese el precio de un producto (Ej: 1000):"));
+    let impuestos = parseFloat(prompt("Ingrese el valor de los impuestos del producto (Ej: 1000):"));
     let mesa = prompt("¿Desea comprar una mesa? (si/no):");
     let silla = prompt("¿Desea comprar una silla? (si/no):");
     let tv = prompt("¿Desea comprar una TV? (si/no):");
@@ -137,24 +139,24 @@ function comprar() {
 
     let descuento = 0;
 
-    switch(dia) {
-        case "Lunes":
+    switch(dia.toLowerCase()) {
+        case "lunes":
             console.log("El descuento del Lunes es: 20%");
             descuento = nuevoProducto.importeFinal * 0.2;
             break;
-        case "Martes":
+        case "martes":
             console.log("El descuento del Martes es: 10%");
             descuento = nuevoProducto.importeFinal * 0.1;
             break;
-        case "Miercoles":
+        case "miercoles":
             console.log("El descuento del Miércoles es: 15%");
             descuento = nuevoProducto.importeFinal * 0.15;
             break;
-        case "Jueves":
+        case "jueves":
             console.log("El descuento del Jueves es: 40%");
             descuento = nuevoProducto.importeFinal * 0.4;
             break;
-        case "Viernes":
+        case "viernes":
             console.log("El descuento del Viernes es: 25%");
             descuento = nuevoProducto.importeFinal * 0.25;
             break;
@@ -167,6 +169,8 @@ function comprar() {
     let importeFinalConDescuento = nuevoProducto.importeFinal - descuento;
     console.log("Importe final: $" + importeFinalConDescuento);
 }
+
+comprar();
 
 function repetirComprar() {
     for (let i = 0; i < 5; i++) {
