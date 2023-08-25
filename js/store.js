@@ -1,28 +1,39 @@
 /* SIGN UP */
 
 document.addEventListener("DOMContentLoaded", function() {
-    let userButtonHeader = document.getElementById("userButtonHeader");
-    let signUpId = document.getElementById("signUpId");
-    let closeButton = document.getElementsByClassName("close")[0];
-    let signUpForm = document.getElementById("signUpForm");
-    let userNameElement = document.getElementById("user-name");
 
-    userButtonHeader.onclick = function() {
-    signUpId.style.display = "block";
-    };
+/* Mostrar el menu Sign Up */
+    const userButtonHeader = document.getElementById("userButtonHeader");
+    const userCloseButton = document.getElementById('userCloseButton');
+    const signUp = document.getElementsByClassName('signUp')[0];
+    const signUpContent = document.getElementsByClassName('signUpContent')[0]
 
-    closeButton.onclick = function() {
-    signUpId.style.display = "none";
-    };
+    userButtonHeader.addEventListener('click', () => {
+        signUp.classList.toggle('signUp-active')
+    })
+    userCloseButton.addEventListener('click', () => {
+        signUp.classList.toggle('signUp-active')
+    })
+    signUp.addEventListener('click', (event) => {
+        signUp.classList.toggle('signUp-active')
+    })
+    signUpContent.addEventListener('click', (event) => {
+        event.stopPropagation()
+    })
+
+    /* Nombre de usuario en el header */
+    const userNameElement = document.getElementById("user-name");
+    /* Formulario de registro de usuario */
+    const signUpForm = document.getElementById("signUpForm");
 
     signUpForm.addEventListener("submit", function(event) {
     event.preventDefault();
-    let usernameInput = document.getElementById("username");
-    let emailInput = document.getElementById("email");
-    let birthdayInput = document.getElementById("birthday");
-    let passwordInput = document.getElementById("password");
+    const usernameInput = document.getElementById("username");
+    const emailInput = document.getElementById("email");
+    const birthdayInput = document.getElementById("birthday");
+    const passwordInput = document.getElementById("password");
 
-    let userData = {
+    const userData = {
         username: usernameInput.value,
         email: emailInput.value,
         birthday: birthdayInput.value,
@@ -38,18 +49,18 @@ document.addEventListener("DOMContentLoaded", function() {
     
     userNameElement.textContent = userData.username;
 
-    signUpId.style.display = "none";
+    signUp.classList.toggle('signUp-active')
     });
 
-    let savedData = localStorage.getItem("userData");
+    const savedData = localStorage.getItem("userData");
 
     if (savedData) {
-    let userData = JSON.parse(savedData);
+    const userData = JSON.parse(savedData);
 
     userNameElement.textContent = userData.username;
     }
 
-    let logOutButtom = document.getElementById('logOutButtom');
+    const logOutButtom = document.getElementById('logOutButtom');
 
     logOutButtom.onclick = function() {
     localStorage.removeItem('userData');
@@ -60,139 +71,48 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* SHOPPING CART */
 
-const stock = [
-    {
-        "id": 1,
-        "name": "Desktop PC #01",
-        "description": "PC Intel Dualcore - 8Gb - SSD",
-        "price": 10,
-        "img": "../images/stock/equipo_armado-1.jpg"
-    },
-    {
-        "id": 2,
-        "name": "Desktop PC #02",
-        "description": "PC AMD Ryzen 5 5600X Full Gamer - 16gb - SSD - RTX3050",
-        "price": 20,
-        "img": "../images/stock/equipo_armado-2.jpg"
-    },
-    {
-        "id": 3,
-        "name": "Desktop PC #03",
-        "description": "PC Intel Core I7 13700f Full Gamer - 32Gb - SSD - Geforce RTX4060Ti",
-        "price": 30,
-        "img": "../images/stock/equipo_armado-3.jpg"
-    },
-    {
-        "id": 4,
-        "name": "Notebook #04",
-        "description": "Notebook ASUS TUF Gaming F15 FX506LHB",
-        "price": 40,
-        "img": "../images/stock/notebook-1.jpg"
-    },
-    {
-        "id": 5,
-        "name": "Notebook #05",
-        "description": "Notebook MSI GF63 Thin",
-        "price": 50,
-        "img": "../images/stock/notebook-2.jpg"
-    },
-    {
-        "id": 6,
-        "name": "Notebook #06",
-        "description": "Notebook ASUS Zenbook Pro 14 Duo OLED UX8402ZA-M3027W",
-        "price": 60,
-        "img": "../images/stock/notebook-3.jpg"
-    },
-    {
-        "id": 7,
-        "name": "Console #07",
-        "description": "Nintendo Switch",
-        "price": 70,
-        "img": "../images/stock/consolas-1.jpg"
-    },
-    {
-        "id": 8,
-        "name": "Console #08",
-        "description": "NSony PlayStation 5",
-        "price": 80,
-        "img": "../images/stock/consolas-2.jpg"
-    },
-    {
-        "id": 9,
-        "name": "Console #09",
-        "description": "Microsoft Xbox Serie X",
-        "price": 90,
-        "img": "../images/stock/consolas-3.jpg"
-    },
-    {
-        "id": 10,
-        "name": "Peripherals #10",
-        "description": "Keyboard - Razer Blackwidow Lite",
-        "price": 100,
-        "img": "../images/stock/perifericos-1.jpg"
-    },
-    {
-        "id": 11,
-        "name": "Peripherals #11",
-        "description": "Mouse - Logitech G502 X White",
-        "price": 110,
-        "img": "../images/stock/perifericos-2.jpg"
-    },
-    {
-        "id": 12,
-        "name": "Peripherals #12",
-        "description": "Headset - Cooler Master MH650 Gamer",
-        "price": 120,
-        "img": "../images/stock/perifericos-3.jpg"
-    },
-    {
-        "id": 13,
-        "name": "Screen #13",
-        "description": "Monitor Viewsonic VX2718-2KPC-MHD",
-        "price": 130,
-        "img": "../images/stock/monitores-1.jpg"
-    },
-    {
-        "id": 14,
-        "name": "Screen #14",
-        "description": "Monitor Gigabyte M27Q",
-        "price": 140,
-        "img": "../images/stock/monitores-2.jpg"
-    },
-    {
-        "id": 15,
-        "name": "Screen #15",
-        "description": "Monitor Gamer Cooler Master GM34-CW2",
-        "price": 150,
-        "img": "../images/stock/monitores-3.jpg"
-    }
-];
+document.addEventListener("DOMContentLoaded", function() {
 
+/* Mostrar el menu Shopping cart */
 const cartButtonHeader = document.getElementById('cartButtonHeader')
-
 const cartCloseButton = document.getElementById('cartCloseButton')
-
 const shoppingCart = document.getElementsByClassName('shoppingCart')[0]
-
 const shoppingCartStyle = document.getElementsByClassName('shoppingCartStyle')[0]
 
 
 cartButtonHeader.addEventListener('click', () => {
     shoppingCart.classList.toggle('cart-active')
 })
-
 cartCloseButton.addEventListener('click', () => {
     shoppingCart.classList.toggle('cart-active')
 })
-
 shoppingCart.addEventListener('click', (event) => {
     shoppingCart.classList.toggle('cart-active')
 })
-
 shoppingCartStyle.addEventListener('click', (event) => {
-    event.stopPropagation() 
+    event.stopPropagation()
 })
 
+
+// Función para abrir la página de pago en otra pestaña
+function abrirPaginaDePago() {
+    window.open('pagina-de-pago.html', '_self');
+}
+
+// Asignar el comportamiento al botón de Finalizar Compra
+let finalizarCompraBtn = document.getElementById('finalizar-compra');
+
+finalizarCompraBtn.onclick = function() {
+let userData = localStorage.getItem('userData'); // Obtener el valor guardado en localStorage
+
+if (userData) {
+    abrirPaginaDePago();
+} else {
+    openModalBtn.click(); // Llamar al método 'click' para abrir el modal
+}
+}
+
+});
 
 const contenedorProductos = document.getElementById('contenedorProductos');
 
@@ -219,36 +139,53 @@ const botonFiltrar = document.getElementById('botonFiltrar')
 let carrito = JSON.parse(localStorage.getItem('stock')) || []
 
 
-/* Funcion para que se muestren los productos */
+/* FUNCION ASINCRONICA CON FETCH PARA MOSTRAR LAS CARTAS QUE ESTAN EN EL ARCHIVO JSON */
 
-    stock.forEach((producto) =>{
-    const div = document.createElement('div')
-    div.classList.add('product')
-    div.innerHTML = ` 
-    <img src=${producto.img} alt= ""> 
-    <h3>
-    ${producto.name}
-    </h3>
-    <p>
-    ${producto.description}
-    </p>
-    <p>Precio: USD ${producto.price}</p>
-    <div>
-    <button id="agregar${producto.id}" class="buttonAdd">Add Cart</button>
-    </div>       
-    `
+const mostrarCartas = async() =>{
+    const respuesta = await fetch ("../data.json")
+    const stock = await respuesta.json()
 
-    contenedorProductos.appendChild(div);
-    
-    const boton = document.getElementById(`agregar${producto.id}`)
+    stock.forEach((producto) => {
+        const div = document.createElement('div')
+        div.classList.add('product')
+        div.innerHTML = `
+        <img src=${producto.img} alt= "">
+        <h3>
+            ${producto.name}
+        </h3>
+        <p>
+            ${producto.description}
+        </p>
+        <p>Precio: USD ${producto.price}</p>
+        <div>
+            <button id="agregar${producto.id}" class="buttonAdd">Add Cart</button>
+        </div>
+        `
 
-    boton.addEventListener('click', () => {
-        agregarAlCarrito(producto.id)
+        contenedorProductos.appendChild(div);
+        
+        const boton = document.getElementById(`agregar${producto.id}`)
 
-        /* Agregar una notificacion de que se agrego el producto al carrito */
+        boton.addEventListener('click', () => {
+            agregarAlCarrito(producto.id)
 
+            Toastify({
+                text: "Successfully Added  ",
+                duration: 800,
+                className:"libreriaAgregar",
+                backgroundColor: "#de600c",
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                style: {
+                color: "#fffff",
+                },
+                onClick: function(){} // Callback after click
+            }).showToast();
+        })
     })
-})
 
 botonFiltrar.addEventListener('click', filtrarProductos);
 
@@ -256,37 +193,53 @@ function filtrarProductos() {
     const precioMin = parseFloat(filtroPrecioMin.value);
     const precioMax = parseFloat(filtroPrecioMax.value);
 
+    // Validar que los valores sean numéricos y el mínimo sea menor al máximo
     if (isNaN(precioMin) || isNaN(precioMax) || precioMin >= precioMax) {
     
-    /* Agregar una notificacion de que se Pida que ingresen valores validos */
-    return;
+        Toastify({
+            text: "Please enter two valid values  ",
+            duration: 4000,
+            className:"libreriaAgregar",
+            backgroundColor: "red",
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            style: {
+            color: "#fffff",
+
+            },
+            onClick: function(){} // Callback after click
+        }).showToast();
+        return;
     }
 
-
+    // Limpiar los productos existentes en el contenedor
     contenedorProductos.innerHTML = '';
 
-
+    // Filtrar los productos por precio
     const productosFiltrados = stock.filter(producto => {
     const precioProducto = parseFloat(producto.price);
     return precioProducto >= precioMin && precioProducto <= precioMax;
     });
 
-
+    // Mostrar los productos filtrados en pantalla
     productosFiltrados.forEach(producto => {
     const div = document.createElement('div');
     div.classList.add('product');
-    div.innerHTML = ` 
+    div.innerHTML = `
         <img src=${producto.img} alt="">
         <h3>
-        ${producto.name}
+            ${producto.name}
         </h3>
         <p>
-        ${producto.description}
+            ${producto.description}
         </p>
         <p>Precio: USD ${producto.price}</p>
         <div>
-        <button id="agregar${producto.id}" class="buttonAdd">Add Cart</button>
-        </div>       
+            <button id="agregar${producto.id}" class="buttonAdd">Add Cart</button>
+        </div>
     `;
 
     contenedorProductos.appendChild(div);
@@ -296,12 +249,28 @@ function filtrarProductos() {
     boton.addEventListener('click', () => {
         agregarAlCarrito(producto.id);
 
-        /* Agregar una notificacion de que se filtraron correctamente */
+        Toastify({
+        text: "Successfully Added  ",
+        duration: 800,
+        className: "libreriaAgregar",
+        backgroundColor: "#de600c",
+        stopOnFocus: true,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "right",
+        style: {
+            color: "#fffff",
+        },
+        onClick: function () {},
+        }).showToast();
     });
     });
+    }
 }
 
-
+    mostrarCartas()
+    
     const eliminarDelCarrito = (prodId) =>{
         const item = carrito.find((prod) => prod.id === prodId)
         const indice = carrito.indexOf(item)
@@ -310,40 +279,44 @@ function filtrarProductos() {
     }
 
     const agregarAlCarrito = (prodId) => {
-    const producto = stockProductos.find((prod) => prod.id === prodId);
-    const existe = carrito.find((prod) => prod.id === prodId);
-
-    if (existe) {
-        existe.cantidad++;
-        actualizarCarrito();
-    } else {
-        const itemAAgregar = {
+    fetch("../data.json")
+        .then((stockProductos) => stockProductos.json())
+        .then((item) => {
+        const producto = item.find((prod) => prod.id === prodId);
+        const existe = carrito.find((prod) => prod.id === prodId);
+        if (existe) {
+            existe.cantidad++;
+            actualizarCarrito();
+        } else {
+            const itemAAgregar = {
             id: producto.id,
             imagen: producto.img,
             nombre: producto.nombre,
-            precio: producto.precio,
+            price: producto.price,
             cantidad: 1,
             descripcion: producto.descripcion,
-        };
-        carrito.push(itemAAgregar);
-    }
-
-    actualizarCarrito();
-};
+            };
+            carrito.push(itemAAgregar);
+            console.log(carrito);
+        }
     
-        
+        actualizarCarrito();
+        });
+    };
+
+
     const actualizarCarrito = () => {
     contenedorCarrito.innerHTML = ""
     carrito.forEach((prod) =>{
         const div= document.createElement('div')
-        div.className=('productoEnCarrito')
+        div.className=('cartProducts')
         div.innerHTML = `
         <img src=${prod.imagen} alt= "">
         <p>
         ${prod.nombre}
         </p>
         <p>
-        Price: USD ${prod.precio}
+        Price: USD ${prod.price}
         </p>
         <p>Quantity: <span id="cantidad">${prod.cantidad}</span></p>
         <button onclick="eliminarDelCarrito(${prod.id})" class="trashButton"><img src="../images/shop/borrar.png" alt=""></button>
@@ -359,32 +332,12 @@ function filtrarProductos() {
 
     contadorCarrito.innerText = carrito.length
 
-    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
+    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad * prod.price, 0)
 }
-                
+
 /* FUNCION PARA VACIAR EL CARRITO */
 
 botonVaciar.addEventListener('click', () => {
     carrito.length = 0
     actualizarCarrito()
 })
-
-
-
-// Función para abrir la página de pago en otra pestaña
-function abrirPaginaDePago() {
-    window.open('pagina-de-pago.html', '_self');
-}
-
-// Asignar el comportamiento al botón de Finalizar Compra
-let finalizarCompraBtn = document.getElementById('finalizar-compra');
-
-finalizarCompraBtn.onclick = function() {
-    let userData = localStorage.getItem('userData');
-
-    if (userData) {
-    abrirPaginaDePago();
-    } else {
-    userButtonHeader.click();
-    }
-}
