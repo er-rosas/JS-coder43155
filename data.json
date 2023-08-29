@@ -3,105 +3,105 @@
         "id": 1,
         "name": "Desktop PC #01",
         "description": "PC Intel Dualcore - 8Gb - SSD",
-        "price": 10,
+        "price": 275,
         "img": "../images/stock/equipo_armado-1.jpg"
     },
     {
         "id": 2,
         "name": "Desktop PC #02",
         "description": "PC AMD Ryzen 5 5600X Full Gamer - 16gb - SSD - RTX3050",
-        "price": 20,
+        "price": 1000,
         "img": "../images/stock/equipo_armado-2.jpg"
     },
     {
         "id": 3,
         "name": "Desktop PC #03",
         "description": "PC Intel Core I7 13700f Full Gamer - 32Gb - SSD - Geforce RTX4060Ti",
-        "price": 30,
+        "price": 2100,
         "img": "../images/stock/equipo_armado-3.jpg"
     },
     {
         "id": 4,
         "name": "Notebook #04",
         "description": "Notebook ASUS TUF Gaming F15 FX506LHB",
-        "price": 40,
+        "price": 900,
         "img": "../images/stock/notebook-1.jpg"
     },
     {
         "id": 5,
         "name": "Notebook #05",
         "description": "Notebook MSI GF63 Thin",
-        "price": 50,
+        "price": 1250,
         "img": "../images/stock/notebook-2.jpg"
     },
     {
         "id": 6,
         "name": "Notebook #06",
         "description": "Notebook ASUS Zenbook Pro 14 Duo OLED UX8402ZA-M3027W",
-        "price": 60,
+        "price": 2500,
         "img": "../images/stock/notebook-3.jpg"
     },
     {
         "id": 7,
         "name": "Console #07",
         "description": "Nintendo Switch",
-        "price": 70,
+        "price": 500,
         "img": "../images/stock/consolas-1.jpg"
     },
     {
         "id": 8,
         "name": "Console #08",
         "description": "NSony PlayStation 5",
-        "price": 80,
+        "price": 800,
         "img": "../images/stock/consolas-2.jpg"
     },
     {
         "id": 9,
         "name": "Console #09",
         "description": "Microsoft Xbox Serie X",
-        "price": 90,
+        "price": 950,
         "img": "../images/stock/consolas-3.jpg"
     },
     {
         "id": 10,
         "name": "G - Accessiries #10",
         "description": "Keyboard - Razer Blackwidow Lite",
-        "price": 100,
+        "price": 60,
         "img": "../images/stock/perifericos-1.jpg"
     },
     {
         "id": 11,
         "name": "G - Accessiries #11",
         "description": "Mouse - Logitech G502 X White",
-        "price": 110,
+        "price": 90,
         "img": "../images/stock/perifericos-2.jpg"
     },
     {
         "id": 12,
         "name": "G - Accessiries #12",
         "description": "Headset - Cooler Master MH650 Gamer",
-        "price": 120,
+        "price": 80,
         "img": "../images/stock/perifericos-3.jpg"
     },
     {
         "id": 13,
         "name": "Monitors #13",
-        "description": "Headset - Cooler Master MH650 Gamer",
-        "price": 130,
+        "description": "Monitor - ViewSonic VA2433-H 24",
+        "price": 150,
         "img": "../images/stock//monitores-1.jpg"
     },
     {
         "id": 14,
         "name": "Monitors #14",
-        "description": "Headset - Cooler Master MH650 Gamer",
-        "price": 140,
+        "description": "Monitor - Gigabyte G24F 24″ 165hz IPS",
+        "price": 270,
         "img": "../images/stock//monitores-2.jpg"
     },
     {
         "id": 15,
         "name": "Monitors #15",
-        "description": "Headset - Cooler Master MH650 Gamer",
-        "price": 150,
+        "description": "Monitor - Gigabyte G34WQC 34″ 144hz Curvo",
+        "price": 850,
         "img": "../images/stock//monitores-3.jpg"
     }
 ]

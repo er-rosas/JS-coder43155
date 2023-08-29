@@ -1,5 +1,6 @@
 // ESTILOS DE LAS PAGINAS
 
+/* Cuando se scrolle 200 pixeles se le agregara la clase menuFixed al menu */
 document.addEventListener("DOMContentLoaded", function() {
     const menu = document.querySelector (".menu");
     let scrolled = false;

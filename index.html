@@ -14,23 +14,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
     <!-- <div class="announcement">
         <span>20% OFF on Monday</span>
-    </div> -->
+    </div> Anuncio de descuento que tal vez agregue -->
     <header id="header" class="menuTop">
         <div class="menu">
             <nav class="navbar">
                 <div class="logo">
-                    <img src="./images/layout/logo/techxperience-white.png" alt="">
-                    <a href="./index.html"><span class="">Tech</span>X<span><span>perience</span></a>
+                    <img src="../images/layout/logo/techxperience-white.png" alt="">
+                    <a href="../index.html"><span class="">Tech</span>X<span><span>perience</span></a>
                 </div>
                 <div class="navegation">
                     <ul>
                         <li>
                             <a href="./index.html">
-                                <img src="./images/layout/header/home-page-white.png" alt="">
+                                <img src="../images/layout/header/home-page-white.png" alt="">
                             </a>
                         </li>
                         <li>
@@ -46,31 +48,32 @@
                 </div>
                 <div class="items">
                     <button id="searchButton" class="botonHeader1">
-                        <img src="./images/layout/header/search-white.png" alt="hola">
+                        <img src="../images/layout/header/search-white.png" alt="searchButton">
                         <span id=""></span>
                     </button>
                     <button id="userButtonHeader" class="botonHeader2">
-                        <img src="./images/layout/header/user-white.png" alt="">
+                        <img src="../images/layout/header/user-white.png" alt="userButton">
                         <p>
-                            <span id="user-name"></span>
+                            <span id="userNameHeader"></span>
                         </p>
                     </button>
                     <button id="cartButtonHeader" class="botonHeader3">
-                        <img src="./images/layout/header/shopping-cart-white.png" alt="">
-                        <span id="contadorCarrito"></span>
+                        <img src="../images/layout/header/shopping-cart-white.png" alt="cartButton">
+                        <p>
+                            <span id="cartCountHeader"></span>
+                        </p>
                     </button>
                 </div>
             </nav>
         </div>
-        <!-- sign up -->
+<!-- sign up -->
         <div id="signUpId" class="signUp">
             <div class="signUpContent">
-                <div>
+                <div class="signUpTop">
                     <h2>
                         SIGN UP
                     </h2>
-                    <button type="button" class="btn-close close" aria-label="Close"></button>
-                    <!-- <div class="close">X</div> -->
+                    <button id="userCloseButton" type="button" class="btn-close userCloseButton" aria-label="Close"></button>
                 </div>
                 <form id="signUpForm" class="signUpFormStyle">
                     <input type="text" id="username" placeholder="User Name" required="">
@@ -85,59 +88,39 @@
 <!-- shopping cart -->
         <div class="shoppingCart">
             <div class="shoppingCartStyle">
-<!--                 <div class="cartSize"> -->
                     <div class="cartTop">
-                        <h3 class="gridCart1">
+                        <h3>
                             CART
                         </h3>
-                        <button id="cartCloseButton" type="button" class="btn-close cartClose gridCart2" aria-label="Close"></button>
-                        <!-- <button id="cartCloseButton" class="cartClose gridCart2">
-                            X
-                        </button> -->
+                        <button id="cartCloseButton" type="button" class="btn-close cartClose" aria-label="Close"></button>
                     </div>
-                    <div id="carrito-contenedor" class="cartProductsContainer gridCart5">
-                        <div class="cartProducts">
-                            <img src="./images/stock/equipo_armado-1.jpg" alt="">
-                            <p>Desktop PC #01</p>
-                            <p>Quantity: <span id="cantidad">1</span></p>
-                            <p>Price: USD 20</p>
-                            <button onclick="eliminarDelCarrito(9)" class="trashButton">
-                            <img src="./images/shop/borrar.png" alt="">
-                            </button>
-                        </div>
+                    <div id="cartContainer" class="cartProductsContainer">
                     </div>
                     <div>
-                        <p class="cartTotalPrice gridCart4">
-                            Total cost: USD <span id="precioTotal">0</span>
+                        <p class="cartTotalPrice">
+                            Total cost: USD <span id="totalCost">0</span>
                         </p>
                     </div>
                     <div class="cartBtnSize">
-                        <button id="vaciar-carrito" class="cartButton gridCart3">
-                            Delete All
+                        <button id="clearCartBtn" class="cartButton">
+                            Delete all
                         </button>
-                        <button id="finalizar-compra" class="cartButton gridCart6">
+                        <button id="finishPurchaseBtn" class="cartButton">
                             Go to Pay
                         </button>
                     </div>
-<!--                 </div> -->
             </div>
         </div>
     </header>
-
-
     <main class="mainContentIndex">
         <section class="carouselHeader">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="true">
                 <div class="carousel-inner carouselSize">
-                    <div class="carousel-item active">
-                        <img src="./images/index/pexels-sanni-sahil-2565919 (1) (1).jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./images/index/pexels-artem-podrez-7773543 (1) (1).jpg" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./images/index/pexelsaaaaa (1) (1) (1).jpg" class="d-block w-100" alt="...">
-                    </div>
+                    <img src="./images/index/carousel-1.jpg" class="carousel-item active carouselImg" alt="...">
+                    <img src="./images/index/carousel-2.jpg" class="carousel-item carouselImg" alt="...">
+                    <img src="./images/index/carousel-3.jpg" class="carousel-item carouselImg" alt="...">
+                    <img src="./images/index/carousel-4.jpg" class="carousel-item carouselImg" alt="...">
+                    <img src="./images/index/carousel-5.jpg" class="carousel-item carouselImg" alt="...">
                     <div class="opacity"></div>
                 </div>
                     <button class="carousel-control-prev carouselHeaderBtn" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -151,52 +134,44 @@
             </div>
         </section>
         <section class="shopIndex">
-            <!-- <div class="card cardIndex" style="width: 18rem;">
-                <img src="./images/stock/notebook-1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div> -->
             <div class="card cardIndex" style="width: 18rem;">
-                <a href="">
-                <img src="./images/index/shop_index-1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Desktop PC</h5>
-                </div>
+                <a href="./pages/shop.html">
+                    <img src="./images/index/shop_index-1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Desktop PC</h5>
+                    </div>
                 </a>
             </div>
             <div class="card cardIndex" style="width: 18rem;">
-                <a href="">
-                <img src="./images/index/shop_index-2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Notebooks</h5>
-                </div>
+                <a href="./pages/shop.html">
+                    <img src="./images/index/shop_index-2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Notebooks</h5>
+                    </div>
                 </a>
             </div>
             <div class="card cardIndex" style="width: 18rem;">
-                <a href="">
-                <img src="./images/index/shop_index-3.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Console</h5>
-                </div>
+                <a href="./pages/shop.html">
+                    <img src="./images/index/shop_index-3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Console</h5>
+                    </div>
                 </a>
             </div>
             <div class="card cardIndex" style="width: 18rem;">
-                <a href="">
-                <img src="./images/index/shop_index-4.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Gaming accessories</h5>
-                </div>
+                <a href="./pages/shop.html">
+                    <img src="./images/index/shop_index-4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Gaming accessories</h5>
+                    </div>
                 </a>
             </div>
             <div class="card cardIndex" style="width: 18rem;">
-                <a href="">
-                <img src="./images/index/shop_index-5.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Monitors</h5>
-                </div>
+                <a href="./pages/shop.html">
+                    <img src="./images/index/shop_index-5.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Monitors</h5>
+                    </div>
                 </a>
             </div>
         </section>
@@ -293,7 +268,9 @@
             <p>© 2023 TechXperience | All rights reserved.</p>
         </div>
     </footer>
+    <script src="./js/index.js"></script>
     <script src="./js/pageStyles.js"></script>
     <script src="./js/store.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>
